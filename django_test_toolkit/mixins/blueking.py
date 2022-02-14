@@ -20,12 +20,14 @@ from .base import LifeCycleHooksMixin
 
 class LoginExemptMixin(LifeCycleHooksMixin):
     """蓝鲸登陆校验中间件豁免"""
+
     def setUp(self):
         patch("blueapps.account.middlewares.LoginRequiredMiddleware.process_view", MagicMock(return_value=None)).start()
 
 
 class StandardResponseAssertionMixin:
     """校验接口响应是否正常并符合蓝鲸响应规范"""
+
     def _base_assertions(self, response):
         """
         :param response: 返回且返回字段符合蓝鲸规范

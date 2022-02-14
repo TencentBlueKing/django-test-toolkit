@@ -17,7 +17,7 @@ from .mixins.base import LifeCycleHooksMixin
 
 
 class ToolkitTestCase(TestCase):
-    """ 继承django.test.TestCase, 需要前置继承于相关生命周期Mixin """
+    """继承django.test.TestCase, 需要前置继承于相关生命周期Mixin"""
 
     @classmethod
     def setUpTestData(cls):

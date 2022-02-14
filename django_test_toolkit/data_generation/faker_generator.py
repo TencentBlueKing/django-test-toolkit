@@ -16,7 +16,8 @@ from django_test_toolkit.data_generation.constants import (
     FIELDS,
     UNIQUE_FIELD_DUPLICATE_RETRY_TOLERANCE,
     USER_FIELD_PROVIDER,
-    FAKER_LOCALE, DEFAULT_DEFAULT_VALUE_FACTOR,
+    FAKER_LOCALE,
+    DEFAULT_DEFAULT_VALUE_FACTOR,
 )
 
 
@@ -34,8 +35,9 @@ class FakerGenerator(Faker):
 
 class DjangoModelFakerOptions(DjangoOptions):
     def _build_default_options(self):
-        field_to_faker_config = getattr(self.factory, "field_to_faker_config", None) or \
-                                getattr(settings, "TEST_TOOLKIT_FAKER_CONFIG", DEFAULT_FIELD_TO_FAKER_CONFIG)
+        field_to_faker_config = getattr(self.factory, "field_to_faker_config", None) or getattr(
+            settings, "TEST_TOOLKIT_FAKER_CONFIG", DEFAULT_FIELD_TO_FAKER_CONFIG
+        )
         return super()._build_default_options() + [
             base.OptionDefault(
                 FIELD_TO_FAKER_CONFIG,

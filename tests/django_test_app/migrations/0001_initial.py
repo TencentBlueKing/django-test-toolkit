@@ -7,29 +7,28 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='TestFieldModel',
+            name="TestFieldModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('test_field', models.IntegerField()),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("test_field", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='TestFieldWithChoiceModel',
+            name="TestFieldWithChoiceModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('test_field', models.IntegerField(choices=[(0, 'value0'), (1, 'value1')])),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("test_field", models.IntegerField(choices=[(0, "value0"), (1, "value1")])),
             ],
         ),
         migrations.CreateModel(
-            name='TestFieldWithDefaultValueModel',
+            name="TestFieldWithDefaultValueModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('test_field', models.IntegerField(default=-1)),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("test_field", models.IntegerField(default=-1)),
             ],
         ),
     ]
