@@ -10,23 +10,3 @@ Unless required by applicable law or agreed to in writing, software distributed 
 an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 """
-
-
-class LifeCycleHooksMixin:
-    @classmethod
-    def set_up_test_data_hook(cls):
-        pass
-
-    @classmethod
-    def set_up_class_hook(cls):
-        pass
-
-    @classmethod
-    def tear_down_class_hook(cls):
-        pass
-
-    def set_up_hook(self):
-        pass
-
-    def tear_down_hook(self):
-        pass

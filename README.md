@@ -103,9 +103,9 @@ class ClockedTaskTestCase(
 
 | Mixin名称                      | 相关领域    | 作用                                    | 涉及钩子                       | 配置项                                                       |
 | ------------------------------ | ----------- | --------------------------------------- | ------------------------------ | ------------------------------------------------------------ |
-| SuperUserMixin                 | 登陆        | 以admin身份登陆系统并进行后续client请求 | setUpTestData、setUp、tearDown | 无                                                           |
-| DrfPermissionExemptMixin       | DRF ViewSet | 用于快速豁免ViewSet权限控制             | setUp                          | VIEWSET_PATH：测试类变量， 以字符串形式描述对应要豁免的ViewSet的路径 |
-| LoginExemptMixin               | 蓝鲸        | 豁免蓝鲸登陆校验                        | setUp                          | 无                                                           |
+| SuperUserMixin                 | 登陆        | 以admin身份登陆系统并进行后续client请求 | set_up_test_data_hook、set_up_hook、tear_down_hook | 无                                                           |
+| DrfPermissionExemptMixin       | DRF ViewSet | 用于快速豁免ViewSet权限控制             | set_up_hook                          | VIEWSET_PATH：测试类变量， 以字符串形式描述对应要豁免的ViewSet的路径 |
+| LoginExemptMixin               | 蓝鲸        | 豁免蓝鲸登陆校验                        | set_up_hook                          | 无                                                           |
 | StandardResponseAssertionMixin | 蓝鲸        | 提供蓝鲸标准返回格式快速判断            | 无                             | 无                                                           |
 
 
@@ -127,7 +127,7 @@ class SuperUserMixin(LifeCycleHooksMixin):
     MOCK_SUPERUSER_PASSWORD = "admin"
 
     @classmethod
-    def setUpTestData(cls):
+    def set_up_test_data_hook(cls):
         user_model = get_user_model()
         try:
             cls.superuser = user_model.objects.get(username=cls.MOCK_SUPERUSER_NAME)
@@ -140,15 +140,15 @@ class SuperUserMixin(LifeCycleHooksMixin):
                 is_active=True,
             )
 
-    def setUp(self):
+    def set_up_hook(self):
         self.client.force_login(user=self.superuser)
 
-    def tearDown(self):
+    def tear_down_hook(self):
         self.client.logout()
 ```
 
 1. 需要继承LifeCycleHooksMixin
-2. 支持Django Test默认提供的生命周期钩子：setUpTestData、setUpClass、tearDownClass、setUp、tearDown
+2. 支持Django Test默认提供的生命周期钩子：set_up_test_data_hook、set_up_class_hook、tear_down_class_hook、set_up_hook、tear_down_hook
 3. 在特定钩子中进行开发
 
 

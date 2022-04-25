@@ -20,6 +20,6 @@ class DrfPermissionExemptMixin(LifeCycleHooksMixin):
 
     VIEWSET_PATH = None
 
-    def setUp(self):
+    def set_up_hook(self):
         if self.VIEWSET_PATH:
             patch(f"{self.VIEWSET_PATH}.permission_classes", MagicMock(return_value=[])).start()

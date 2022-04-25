@@ -20,7 +20,7 @@ class SuperUserMixin(LifeCycleHooksMixin):
     MOCK_SUPERUSER_PASSWORD = "admin"
 
     @classmethod
-    def setUpTestData(cls):
+    def set_up_test_data_hook(cls):
         user_model = get_user_model()
         try:
             cls.superuser = user_model.objects.get(username=cls.MOCK_SUPERUSER_NAME)
@@ -33,8 +33,8 @@ class SuperUserMixin(LifeCycleHooksMixin):
                 is_active=True,
             )
 
-    def setUp(self):
+    def set_up_hook(self):
         self.client.force_login(user=self.superuser)
 
-    def tearDown(self):
+    def tear_down_hook(self):
         self.client.logout()
