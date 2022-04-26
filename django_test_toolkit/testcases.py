@@ -22,25 +22,25 @@ class ToolkitTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
-        cls._activate_mixin_hook(obj=cls, is_class=True, hook="setUpTestData")
+        cls._activate_mixin_hook(obj=cls, is_class=True, hook="set_up_test_data")
 
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls._activate_mixin_hook(obj=cls, is_class=True, hook="setUpClass")
+        cls._activate_mixin_hook(obj=cls, is_class=True, hook="set_up_class")
 
     @classmethod
     def tearDownClass(cls):
         super().tearDownClass()
-        cls._activate_mixin_hook(obj=cls, is_class=True, hook="tearDownClass")
+        cls._activate_mixin_hook(obj=cls, is_class=True, hook="tear_down_class")
 
     def setUp(self):
         super().setUp()
-        self._activate_mixin_hook(obj=self, is_class=False, hook="setUp")
+        self._activate_mixin_hook(obj=self, is_class=False, hook="set_up")
 
     def tearDown(self):
         super().tearDown()
-        self._activate_mixin_hook(obj=self, is_class=False, hook="tearDown")
+        self._activate_mixin_hook(obj=self, is_class=False, hook="tear_down")
 
     @staticmethod
     def _activate_mixin_hook(obj, is_class, hook):
