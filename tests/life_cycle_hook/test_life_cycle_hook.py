@@ -16,14 +16,14 @@ from django_test_toolkit.testcases import ToolkitTestCase
 
 class LifeCycleTestMixin(LifeCycleHooksMixin):
     @classmethod
-    def set_up_test_data_hook(cls):
+    def set_up_test_data(cls):
         cls.set_up_test_data_value = "set_up_test_data_value"
 
     @classmethod
-    def set_up_class_hook(cls):
+    def set_up_class(cls):
         cls.set_up_class_value = "set_up_class_value"
 
-    def set_up_hook(self):
+    def set_up(self):
         self.set_up_value = "set_up_value"
 
 

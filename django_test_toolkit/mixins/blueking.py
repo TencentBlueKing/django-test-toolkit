@@ -21,7 +21,7 @@ from .base import LifeCycleHooksMixin
 class LoginExemptMixin(LifeCycleHooksMixin):
     """蓝鲸登陆校验中间件豁免"""
 
-    def set_up_hook(self):
+    def set_up(self):
         patch("blueapps.account.middlewares.LoginRequiredMiddleware.process_view", MagicMock(return_value=None)).start()
 
 

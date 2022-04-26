@@ -14,19 +14,19 @@ specific language governing permissions and limitations under the License.
 
 class LifeCycleHooksMixin:
     @classmethod
-    def set_up_test_data_hook(cls):
+    def set_up_test_data(cls):
         pass
 
     @classmethod
-    def set_up_class_hook(cls):
+    def set_up_class(cls):
         pass
 
     @classmethod
-    def tear_down_class_hook(cls):
+    def tear_down_class(cls):
         pass
 
-    def set_up_hook(self):
+    def set_up(self):
         pass
 
-    def tear_down_hook(self):
+    def tear_down(self):
         pass
